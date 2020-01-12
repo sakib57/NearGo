@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab4">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button style="text-transform: none;font-size:20px" routerLink="/register">
+        <ion-icon slot="start" color="light" ios="ios-add" md="md-add"></ion-icon>
+        Register
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <div class="img-bg">
+    <div class="overlay">
+      <div class="bottom">
+        <h2>NearGo</h2>
+      </div>
+    </div>
+  </div>
+  <div class="form">
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <small style="color:#fc7303" *ngIf="!form.controls.email.valid  && submitAttempt">Please enter a valid email.</small>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <small style="color:#fc7303" *ngIf="!form.controls.password.valid  && submitAttempt">Please enter password.</small>
+      <p style="color: #fc7303;text-align:center;letter-spacing: 1px">Forgot Password?</p>
+      <ion-button (click)="onSubmit()" color="light" style="margin-top: 30px;text-transform:none" expand="block" size="large" shape="round" fill="solid">Sign in now</ion-button>
+  </form>
+</div>
+<h5 style="color: white;text-align:center;letter-spacing: 1px;margin-top: 25px">Or Continue With</h5>
+<ion-grid style="margin-top: 20px">
+  <ion-row>
+    <ion-col size="6"  style="text-align: center;padding: 0px 15px">
+      <img style="border-radius: 5px;height: 40px;" src="assets/images/fb.png">
+    </ion-col>
+    <ion-col size="6"  style="text-align: center;padding: 0px 15px">
+      <img style="border-radius: 5px;height: 40px;" src="assets/images/google.png">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

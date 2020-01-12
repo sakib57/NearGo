@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab4" ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="img-bg">
+    <div style="margin:0 auto;position: relative;">
+      <div (click)="openActionSheet()" class="icon"> <ion-icon style="color: white" ios="ios-camera" md="md-camera"></ion-icon></div>
+      <ion-avatar (click)="openActionSheet()">
+        <ion-img *ngIf="img && base64img == ''" [src]="img" alt=""></ion-img>
+        <ion-img *ngIf="!img && base64img == ''" src="/assets/images/profile.png" alt=""></ion-img>
+        <ion-img [src]=base64img class="square" *ngIf="base64img!=''"></ion-img>
+      </ion-avatar>
+    </div>
+  </div>
+
+  <div class="form">
+    <form [formGroup]="form">
+        <ion-item>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-item>
+        <!-- <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email"></ion-input>
+        </ion-item> -->
+        <ion-item>
+          <ion-label position="floating">Phone Number</ion-label>
+          <ion-input formControlName="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Address</ion-label>
+          <ion-textarea formControlName="address"></ion-textarea>
+        </ion-item>
+        <ion-button (click)="onSubmit()" color="light" expand="block" size="large" shape="round" fill="solid">Update Profile</ion-button>
+    </form>
+  </div>
+</ion-content>

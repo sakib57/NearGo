@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" icon-only>
+            <ion-back-button style="color:white" defaultHref="/tabs/tab4"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            Order List
+        </ion-title>
+
+    </ion-toolbar>
+    <div class="img-bg ss_img" style="background-image: url('../../assets/images/potato_sweet.jpg')">
+        <div class="overlay"></div>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div *ngFor="let val of order">
+            <h3 style="margin-left: 15px" > Order no {{ val.id }}</h3>
+            <p style="margin: 0px 15px">Place on {{ val.created_at | date }}</p>
+            
+            <ion-list>
+                <ion-item *ngFor="let v of val.order_product">
+                    <ion-avatar slot="start">
+                        <ion-img [src]="domain+'assets/images/uploads/products/'+v.image" ></ion-img>
+                    </ion-avatar>
+                    <ion-label>
+                        <h2>{{ v.product_name }}</h2>
+                        <h3>$ {{ v.price }} </h3>
+                        <p>X {{ v.qty }}</p>
+                        <p> {{ v.qty }} items , total <strong> ${{ v.total_price }}</strong> </p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+    </div>
+    
+
+</ion-content>

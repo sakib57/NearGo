@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start" icon-only>
+          <ion-back-button style="color:white" defaultHref="/checkout"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+          Order summery
+      </ion-title>
+
+  </ion-toolbar>
+  <div class="img-bg ss_img" style="background-image: url('../../assets/images/potato_sweet.jpg')">
+      <div class="overlay"></div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <h3 class="ion-text-center"> Order received</h3>
+  <p class="ion-text-center">Thank you. your order has been received</p>
+  <hr/>
+  <ion-list>
+      <ion-item>
+          <ion-label>Order Number:</ion-label>
+          <p>{{ orderInfo.order_id }}</p>
+      </ion-item>
+      <ion-item>
+          <ion-label>Order Date : </ion-label>
+          <p>{{ orderInfo.date }}</p>
+      </ion-item>
+      <ion-item>
+          <ion-label>Total Quantity :</ion-label>
+          <p>{{ totalqty }}</p>
+      </ion-item>
+      <ion-item>
+          <ion-label>Total :</ion-label>
+          <p>$ {{ orderInfo.total }}</p>
+      </ion-item>
+      <ion-item>
+          <ion-label>Payment Method</ion-label>
+          <p>{{ orderInfo.payment_method }}</p>
+      </ion-item>
+      <ion-list-header>
+          <ion-label>Order details</ion-label>
+      </ion-list-header>
+
+      <ion-item *ngFor="let v of orderProducts">
+          <ion-label>{{ v.name }} ({{ v.qty }})</ion-label>
+          <p>$ {{ v.total_price }}</p>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Sub total</ion-label>
+          <p>$ {{ subtotal }}</p>
+      </ion-item>
+      <ion-item>
+          <ion-label>Shipping</ion-label>
+          <p>$ {{ total_shipping_price }}</p>
+      </ion-item>
+      <ion-item class="ss_totalss">
+          <ion-label>Total</ion-label>
+          <p><strong>$ {{ orderInfo.total }}</strong></p>
+      </ion-item>
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="dark" style="position: relative">
+
+      <ion-button routerLink="/tabs/tab1" color="light" shape="round" style="margin-right: 10px;text-transform: none" slot="end">Continue</ion-button>
+  </ion-toolbar>
+</ion-footer>

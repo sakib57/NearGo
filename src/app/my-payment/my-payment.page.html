@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" icon-only>
+            <ion-back-button style="color:white" defaultHref="/tabs/tab4"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            Payment Methord
+        </ion-title>
+
+    </ion-toolbar>
+    <div class="img-bg ss_img" style="background-image: url('../../assets/images/payment_method.png')">
+        <div class="overlay"></div>
+    </div>
+</ion-header>
+
+<!-- <ion-content>
+    <ion-list>
+        <ion-item class="ss_checks">
+            <ion-label><img src="assets/images/paytm.png" height="20"></ion-label>
+            <ion-checkbox color="light" checked></ion-checkbox>
+
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Type your paytm phone </ion-label>
+            <ion-input type="text"> </ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item class="ss_checks">
+            <ion-label><img src="assets/images/paypal.png" height="20"></ion-label>
+            <ion-checkbox color="light"></ion-checkbox>
+
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Type your paypal email phone </ion-label>
+            <ion-input type="email"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item class="ss_checks">
+            <ion-label><img src="assets/images/cradit_card.png" height="20"></ion-label>
+            <ion-checkbox color="light"></ion-checkbox>
+
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Card name </ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Card type</ion-label>
+            <ion-select>
+                <ion-select-option value="vs">Visa</ion-select-option>
+                <ion-select-option value="ms">Master</ion-select-option>
+                <ion-select-option value="ax">American Express</ion-select-option>
+                <ion-select-option value="ax">Discover</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Card holder name </ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Card Number </ion-label>
+            <ion-input type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Expaire date </ion-label>
+            <ion-datetime value="1990-02-19" placeholder="Select Date"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">CVV </ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-list>
+        <ion-item class="ss_checks">
+            <ion-label>Cash on delivery</ion-label>
+            <ion-checkbox color="light"></ion-checkbox>
+
+        </ion-item>
+
+    </ion-list>
+</ion-content> -->
+
+
+<ion-content>
+    <ion-button (click)="recharge()" >Recharge</ion-button>
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar color="dark" style="position: relative">
+
+        <ion-button routerLink="" color="light" shape="round" style="margin-right: 10px;text-transform: none" slot="end">Save</ion-button>
+    </ion-toolbar>
+</ion-footer>

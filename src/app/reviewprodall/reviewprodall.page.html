@@ -1,0 +1,112 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" icon-only>
+            <ion-back-button style="color:white" defaultHref="/product-detail/{{ product_id }}"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            {{ detail.product_name }}
+            <p class="subtitle">{{ detail.category_name }}</p>
+        </ion-title>
+        <div class="ss_review_filter">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="7">
+                        <div class="store-top">
+                            <ion-badge>{{ detail.total_rating }}
+                                <ion-icon name="star"></ion-icon>
+                            </ion-badge> {{ detail.total_people_rated }} pleple rated
+                        </div>
+                    </ion-col>
+                    <ion-col size="5">
+                        <ion-select>
+                            <ion-select-option value="first" selected>Newwest First</ion-select-option>
+                            <ion-select-option value="last">Newwest Last</ion-select-option>
+                        </ion-select>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </ion-toolbar>
+    <div class="img-bg ss_img" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/products/' + detail.image + ')'}">
+        <div class="overlay"></div>
+    </div>
+
+
+
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let v of review">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="8">
+                        <div class="item-avatar">
+                            <div class="img_avacatos">
+                                <ion-img *ngIf="!v.image" src="https://image.flaticon.com/icons/svg/149/149071.svg" height="40"></ion-img>
+                                <ion-img *ngIf="v.image" [src]="v.image" height="40"></ion-img>
+                            </div>
+                            <h3>{{ v.name }}</h3>
+                            <p>{{ v.date | date }}</p>
+                        </div>
+                    </ion-col>
+                    <ion-col size="4" class="ion-text-right">
+                        <div class="rating" *ngIf="v.rating == '0'">
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        <div class="rating" *ngIf="v.rating == '1'">
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        <div class="rating" *ngIf="v.rating == '2'">
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        <div class="rating" *ngIf="v.rating == '3'">
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        <div class="rating" *ngIf="v.rating == '4'">
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        <div class="rating" *ngIf="v.rating == '5'">
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon class="rated" name="star"></ion-icon>
+                            <ion-icon class="rated" name="star"></ion-icon>
+                        </div>
+                    </ion-col>
+                    <ion-col size="12">
+                        <p>{{ v.message }}</p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+        <div *ngIf="review.length < 1 && !isLoading" class="no-review">
+            <p class="ion-text-center">No review yet</p>
+        </div>
+    </ion-list>
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button routerLink="/reviewprodadd/{{product_id}}">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

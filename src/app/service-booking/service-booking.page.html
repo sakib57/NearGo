@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar class="top-toolbar">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/service-detail/{{ service_id }}">
+          </ion-back-button>
+        </ion-buttons>
+    <ion-title>Service Booking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="address">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+            <ion-icon style="font-size: 25px"  name="pin"></ion-icon>
+        </ion-col>
+        <ion-col size="10">
+          <ion-row>
+            <ion-col size="6">
+              {{ user.name }}
+            </ion-col>
+            <ion-col size="6"  class="ion-no-padding">
+              <ion-button size="small" shape="round" fill="outline" style="float: right">Change</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              {{ user.address }}
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="payment-method">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-label>Schedule</ion-label>
+          <!-- <form [formGroup]="form">
+          <ion-select placeholder="Select One" formControlName="service_id">
+            <ion-select-option *ngFor="let v of detail.schedule" value="{{ v.id }}">{{ v.day}} - {{ v.start_time }} - {{ v.end_time }}</ion-select-option>
+          </ion-select>
+        </form> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- <div class="products">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-row>
+            <ion-col size="12">
+              <p style="margin: 0px">ddssa</p>
+              <small>adsasd</small>
+            </ion-col>
+          </ion-row>
+          <ion-row >
+            <ion-col size="6">
+               12321 $ <br>
+              <small>12312$</small>
+            </ion-col>
+            <ion-col size="6">
+              <span style=float:right>Qty: 22</span>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="invoice">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <p>Subtotal</p>
+        </ion-col>
+        <ion-col size="6">
+          <p style="float: right;margin-right:10px">1231 $</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <p>Shipping</p>
+        </ion-col>
+        <ion-col size="6">
+          <p style="float: right;margin-right:10px">1231 $</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
+</ion-content>
+<ion-footer>
+    <ion-toolbar color="dark" style="position: relative">
+      <ion-button [disabled]="!form.valid" (click)="confirm()" class="ckout"  style="margin-right: 10px;text-transform: none" slot="end">Confirm</ion-button>
+    </ion-toolbar>
+</ion-footer>

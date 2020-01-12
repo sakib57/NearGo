@@ -1,0 +1,186 @@
+<ion-content *ngIf="isLogged">
+  <div class="header" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/profiles/'+ user.image +')'}">
+    <div class="overlay">
+        <div class="top">
+            <ion-grid class="ion-no-padding">
+              <ion-row>
+                <ion-col class="ion-no-padding" size="6">
+                  <p>Account</p>
+                </ion-col>
+                <ion-col class="ion-no-padding" size="6">
+                  <p (click)="logout()" style="float: right">Logout</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="bottom-logged"  routerLink="/profile" style="outline: none">
+            <ion-grid class="ion-no-padding">
+              <ion-row>
+                <ion-col size="3" class="ion-no-padding">
+                  <ion-avatar class="ff">
+                    <ion-img [src]="domain+'assets/images/uploads/profiles/'+user.image"></ion-img>
+                  </ion-avatar>
+                </ion-col>
+                <ion-col size="9" class="ion-no-padding">
+                    <h3>{{ user.name }}</h3>
+                    <small>View Profile</small>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+    </div>
+  </div>
+  <div class="content">
+      <ion-grid class="ion-no-padding" style="margin-bottom: 20px">
+        <ion-row class="ss_extra_settingss ion-text-center">
+          <ion-col>
+              <div routerLink="/order-list" style="outline: none">
+                  <ion-icon name="reorder"></ion-icon>
+                  <p>order list</p>
+              </div>
+          </ion-col>
+          <ion-col>
+              <div routerLink="/my-payment" style="outline: none">
+                  <ion-icon name="card"></ion-icon>
+                  <p>Payment </p>
+              </div>
+          </ion-col>
+          <ion-col>
+              <div routerLink="/my-return" style="outline: none">
+                  <ion-icon name="infinite"></ion-icon>
+                  <p>My Return</p>
+              </div>
+          </ion-col>
+          <ion-col>
+              <div routerLink="/order-cancel" style="outline: none">
+                  <ion-icon name="remove-circle"></ion-icon>
+                  <p> My Cancel</p>
+              </div>
+          </ion-col>
+      </ion-row>
+        <ion-row>
+          <ion-col class="ion-no-padding" size="2">
+              <ion-icon ios="ios-cash" md="md-cash"></ion-icon>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="10">
+            <p style="margin-bottom: 0px;color: white">Your wallet balance is: {{ user.balance }} $</p>
+            <ion-button size="small" fill="outline" color="light" style="float:right" routerLink="/recharge">Recarge</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row routerLink="/my-products" style="outline: none">
+          <ion-col class="ion-no-padding" size="2">
+              <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="10">
+            <p style="margin-bottom: 0px;color: white">Saved Products & Stores</p>
+            <span style="font-size: 13px;color: white">View list of products & stores saved</span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="ion-no-padding" size="2">
+              <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="10">
+            <p style="margin-bottom: 0px;color: white">Need Help?</p>
+            <span style="font-size: 13px;color: white">View list of stores saved,interested offers and events</span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col class="ion-no-padding" size="2">
+              <ion-icon ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="10">
+            <p style="margin-bottom: 0px;color: white">Rate App</p>
+            <span style="font-size: 13px;color: white">View list of stores saved,interested offers and events</span>
+          </ion-col>
+        </ion-row>
+
+        <ion-row routerLink="/trams-conditions" style="outline: none">
+          <ion-col class="ion-no-padding" size="2">
+              <ion-icon ios="ios-clipboard" md="md-clipboard"></ion-icon>
+          </ion-col>
+          <ion-col class="ion-no-padding" size="10">
+            <p style="margin-bottom: 0px;color: white">Terms & Conditions</p>
+            <span style="font-size: 13px;color: white">View list of stores saved,interested offers and events</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </div>
+
+</ion-content>
+
+<!-- <ion-content *ngIf="!isLogged">
+  <div class="img-bg">
+    <div class="anyms-overlay">
+      <div class="buttons">
+        <ion-grid >
+            <ion-row>
+              <ion-col size=12>
+                <ion-button routerLink="/login" class="login" shape="round" fill="outline" size="large"  expand="block"> Login</ion-button>
+              </ion-col>
+              <ion-col size=12>
+                <ion-button routerLink="/register" class="sign-up" shape="round" fill="solid" size="large"  expand="block"> Sign Up</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content> -->
+
+
+
+
+<ion-header *ngIf="!isLogged">
+  <ion-toolbar color="secondary">
+    <!-- <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab4">
+      </ion-back-button>
+    </ion-buttons> -->
+    <ion-buttons slot="end">
+      <ion-button style="text-transform: none;font-size:20px" routerLink="/register">
+        <ion-icon slot="start" color="light" ios="ios-add" md="md-add"></ion-icon>
+        Register
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!isLogged" fullscreen>
+  <div class="img-bg">
+    <div class="overlay">
+      <div class="bottom">
+        <h2>NearGo</h2>
+      </div>
+    </div>
+  </div>
+  <div class="form">
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <small style="color:#fc7303" *ngIf="!form.controls.email.valid  && submitAttempt">Please enter a valid email.</small>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <small style="color:#fc7303" *ngIf="!form.controls.password.valid  && submitAttempt">Please enter password.</small>
+      <p style="color: #fc7303;text-align:center;letter-spacing: 1px">Forgot Password?</p>
+      <ion-button (click)="onSubmit()" color="light" style="margin-top: 30px;text-transform:none" expand="block" size="large" shape="round" fill="solid">Sign in now</ion-button>
+  </form>
+</div>
+<h5 style="color: white;text-align:center;letter-spacing: 1px;margin-top: 25px">Or Continue With</h5>
+<ion-grid class="ss_social">
+  <ion-row class="ion-text-center">
+      <ion-col size="6">
+          <ion-button shape="round" fill="outline"><img src="assets/images/fb.png"> Facebook</ion-button>
+      </ion-col>
+      <ion-col size="6">
+          <ion-button shape="round" fill="outline"><img src="assets/images/google.png"> Google</ion-button>
+      </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

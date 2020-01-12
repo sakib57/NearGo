@@ -1,0 +1,165 @@
+<ion-header>
+  <ion-toolbar color="secondary" [class.show-background]="showToolbar">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/tab1">
+        </ion-back-button>
+      </ion-buttons>
+
+    <p *ngIf="hasData" class="event-btn" slot="end"><ion-icon style="font-size: 17px" ios="ios-calendar" md="md-calendar"></ion-icon> &nbsp; 2 August - 24 December</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="hasData" class="black-bg" fullscreen (ionScroll)="onScroll($event)" [scrollEvents]="true">
+
+    <div  style="background: url('../../assets/images/map.png') no-repeat bottom; background-size: 100%">
+      <div style="background-image: linear-gradient( #000 80%, #000000bf);">
+
+    <div class="image-bg" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/events/' + detail.image + ')'}">
+      <div class="in"></div>
+    </div>
+
+    <div class="overlay">
+      <div style="padding: 0px 25px">
+          <h4 style="margin-bottom: 30px;margin-top: 0px">{{ detail.title }}</h4>
+
+          <h6 style="margin-bottom: 0px">ABOUT EVENT</h6>
+          <p style="margin-top: 8px;line-height: 24px;">
+            {{ detail.description }}
+          </p>
+
+            <ion-grid class="ion-no-padding">
+              <ion-row>
+                <ion-col size="6" class="ion-no-padding">
+                  <p>{{ detail.people_going }}  <small>People are going in event</small></p>
+                </ion-col>
+                <ion-col size="6" class="ion-no-padding">
+                    <ion-button *ngIf="!IamGoing" (click)="going()" shape="round" fill="outline">I am going</ion-button>
+                    <ion-button *ngIf="IamGoing" (click)="notGoing()" shape="round" fill="solid" color="light">I am going</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <h6>EVENT BY</h6>
+            <ion-grid class="ion-no-padding">
+                <ion-row>
+                  <ion-col size="6" class="ion-no-padding">
+                    <p class="orange p-less-top-margin">{{ detail.name }}</p>
+                    <small>{{ detail.category_name }}</small>
+                  </ion-col>
+                  <ion-col size="6" class="ion-no-padding">
+                      <p routerLink="/shop-detail/{{ detail.shop_id }}" class="orange p-less-top-margin" style="float: right;outline: none">View Store</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+              <h6>ADDRESS</h6>
+            <ion-grid class="ion-no-padding">
+                <ion-row>
+                  <ion-col size="6"  class="ion-no-padding">
+                    <p class="p-less-top-margin">{{ detail.location }}</p>
+                  </ion-col>
+                  <ion-col size="6" class="ion-no-padding">
+                      <p class="orange p-less-top-margin" style="float: right">Get Direction</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-grid class="ion-no-padding" >
+                  <ion-row class="ion-text-center">
+                    <ion-col class="ion-no-padding">
+                        <ion-icon name="pin" style="font-size: 50px;color: #fc7303;margin-bottom: 25px"></ion-icon>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+      </div>
+      
+    </div>
+
+    </div>
+    </div>
+
+  
+</ion-content>
+
+<ion-content *ngIf="!hasData" fullscreen>
+      
+    <div class="ion-no-padding" style="margin-top: -56px;">
+        <ion-thumbnail style="width: 100%;height:230px">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-thumbnail>
+    </div>
+  
+    <ion-list>
+      <ion-list-header>
+        <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+      </ion-list-header>
+      <ion-item>
+        
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        
+        <ion-label>
+          <h1>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h1>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+              <h3>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              </h3>
+              <p>
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              </p>
+            </ion-label>
+          </ion-item>
+    </ion-list>
+</ion-content>

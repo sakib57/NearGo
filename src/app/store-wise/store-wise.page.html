@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/shop-detail/{{ shop_id }}"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ store_name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="products.length > 0 && !isLoading">
+  <div class="ss_product_list" >
+    <div *ngFor="let v of products" class="store" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/products/' + v.image + ')'}">
+        <div class="product_img"></div>
+        <div class="product_desc"></div>
+        <div class="store-top">
+            <div class="cart_icons">
+                <ion-icon class="cart" routerLink="/cart" name="cart"></ion-icon>
+            </div>
+            <ion-badge> <span class="strike">55$ </span> {{ v.price }}$</ion-badge>
+        </div>
+        <div class="store-bottom">
+            <div>
+                <p routerLink="/product-detail/{{ v.id }}" style="color:white;margin: 0px;outline:none"> {{ v.product_name }}</p>
+                <p style="color:white;margin: 0px;">
+
+                    <span class="orange" style="font-size: 11px"><strong>{{ v.name }}</strong> </span> | <span style="font-size: 11px">{{ v.category_name }}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+  </div>
+</ion-content>
+<ion-content *ngIf="products.length < 1 && !isLoading">
+  <div class="no-product">
+    <p>No product in this shop</p>
+  </div>
+</ion-content>

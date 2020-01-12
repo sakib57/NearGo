@@ -1,0 +1,217 @@
+.welcome-card img {
+    max-height: 35vh;
+    overflow: hidden;
+}
+
+.orange {
+    color: #fc7303;
+}
+
+.store {
+    height: 180px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    outline: none;
+}
+
+.store-top {
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+}
+
+.store-top ion-badge {
+    float: right;
+    background-color: #fc7303;
+    border-radius: 15px;
+    padding: 6px 10px;
+    font-weight: normal;
+}
+
+.strike {
+    text-decoration: line-through;
+    color: rgb(222, 222, 222);
+    margin-right: 5px;
+    margin-left: -10;
+}
+
+.store-bottom {
+    width: 100%;
+    height: 67px;
+    margin-top: 90px;
+    padding: 10px;
+    background-image: linear-gradient(#00000000, #000);
+}
+
+.store-bottom p {
+    white-space: nowrap;
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.right {
+    float: right;
+    margin-top: 15px;
+    color: white
+}
+
+.left {
+    float: left;
+}
+
+.elips {
+    white-space: nowrap;
+    font-size: 13px;
+    margin: 0px;
+    color: white;
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    //border: 1px solid #000000;
+}
+
+.no-wrap {
+    white-space: nowrap;
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px;
+    font-size: 13px;
+    //float: right;
+}
+
+.mdl {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+// ss salim
+ion-toolbar {
+    background: #0f0f0f !important;
+    min-height: 60px;
+    --padding-top: 8px;
+    ion-title {
+        padding-left: 15px !important;
+        font-size: 30px;
+        font-weight: normal;
+        padding-top: 8px;
+        text-align: left !important;
+        font-weight: 600;
+    }
+    ion-icon {
+        color: #ef731f !important;
+    }
+    .toolbar-container {
+        padding: 0px;
+        --padding: 0px;
+    }
+}
+
+.ss_gegment_toolbar {
+    min-height: 40px;
+    --min-height: 40px;
+    --padding-top: 0px;
+    --line-height: 40px;
+    ion-segment {
+        background: #0f0f0f;
+        ion-segment-button {
+            --indicator-color: transparent !important;
+            --indicator-color-checked: transparent !important;
+            max-width: inherit;
+            min-width: 100px;
+            border: none;
+            background: transparent;
+            border-radius: 0;
+            min-height: 40px;
+            line-height: 40px;
+            --min-height: 40px;
+            --line-height: 40px;
+            ion-label {
+                color: #5b5b5b;
+                font-size: 18px;
+                text-transform: capitalize;
+                --line-height: 40px;
+                letter-spacing: 0;
+                font-weight: normal
+            }
+            .segment-button-indicator {
+                display: none !important;
+            }
+        }
+        .segment-button-checked {
+            border-bottom: 2px solid #ff8623;
+            ion-label {
+                color: #fff;
+                letter-spacing: 0;
+                font-weight: normal
+            }
+        }
+    }
+    .toolbar-container {
+        padding-bottom: 0px !important;
+        --padding-bottom: 0px !important;
+    }
+}
+
+ion-content {
+    .store-bottom {
+        .left {
+            .elips {
+                font-weight: normal;
+                color: #afafaf;
+                ion-icon {
+                    color: #ff8623;
+                }
+            }
+        }
+    }
+    .ss_product_list {
+        //padding-top: 10px;
+        //padding-bottom: 10px;
+        
+        .store {
+            width: 50%;
+            float: left;
+            padding: 5px;
+            position: relative;
+            p {
+                width: auto;
+            }
+            .store-bottom {
+                margin-top: 0;
+                position: absolute;
+                bottom: 0;
+                margin-left: -5px;
+            }
+            .store-top {
+                .cart_icons {
+                    color: #ffffff;
+                    background: #ef731f;
+                    height: 20px;
+                    width: 20px;
+                    font-size: 14px;
+                    border-radius: 50%;
+                    float: left;
+                    line-height: 26px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.no-shop{
+    width:220px;
+    height: 60px;
+    padding-top: 19px;
+    margin: auto;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(7, 6, 6);
+    text-align: center;
+    border-radius: 5px;
+    vertical-align: middle;
+}

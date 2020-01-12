@@ -1,0 +1,62 @@
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+.header-md::after {
+    background-image: none;
+}
+
+/* Remove bottom border on ios */
+.header-ios ion-toolbar:last-child {
+    --border-width: 0;
+}
+.p-less-top-margin{
+    margin-top: 0px;
+    margin-bottom: 3px
+}
+
+.img-bg{
+    width: 100%;
+    height: 230px;
+    margin-top: -56px;
+    background-image: url('../../assets/images/bbb.jpg');
+    background-size: cover;
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(#000, #0000006e,#000);
+    position: relative;
+}
+
+.bottom{
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    color: white;
+    padding-left: 36px;
+}
+
+.form{
+    width: 100%;
+    margin-top: 5px;
+    padding: 0px 20px;
+}
+
+// ion-button{
+//     margin-top: 80px;
+// }
+
+ion-content{
+    --ion-background-color:#000;
+}
+
+ion-item{
+    color:white;
+    --border-color: #9e9e9e;
+}
+.item-has-focus {
+    --border-color:  red
+}

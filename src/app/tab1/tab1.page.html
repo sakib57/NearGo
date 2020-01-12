@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-toolbar color="dark">
+      <ion-title class="orange" class="ion-text-left">
+          NearGo
+      </ion-title>
+      <ion-buttons slot="end">
+          <ion-button>
+              <ion-icon slot="icon-only" class="orange" name="search"></ion-icon>
+          </ion-button>
+          <ion-button>
+              <ion-icon slot="icon-only" class="orange" name="map"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="dark ss_gegment_toolbar">
+      <ion-segment scrollable (ionChange)="segmentChanged($event)">
+          <ion-segment-button value="stores" checked>
+              <ion-label>Stores</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="products">
+              <ion-label>Products</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="services">
+              <ion-label>Services</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="offers">
+              <ion-label>Offers</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="events">
+              <ion-label>Events</ion-label>
+          </ion-segment-button>
+      </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="hasData">
+  <div *ngIf="term == 'stores'">
+      <div *ngFor="let v of stores" class="store" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/shops/' + v.image + ')'}" routerLink="/shop-detail/{{ v.id }}">
+          <div class="store-top">
+              <ion-badge>{{ v.total_rateing }}
+                  <ion-icon name="star"></ion-icon>
+              </ion-badge>
+          </div>
+          <div class="store-bottom">
+              <ion-grid class="ion-no-padding">
+                  <ion-row>
+                      <ion-col class="ion-no-padding" size="8">
+                          <div class="left">
+                              <p style="color:white;margin: 0px">{{ v.name }}</p>
+                              <p class="elips">
+                                  <ion-icon name="pin"></ion-icon>{{ v.location }}
+                              </p>
+                          </div>
+                      </ion-col>
+                      <ion-col class="ion-no-padding" size="4">
+                          <div class="right">
+                              <span class="elips">{{ v.category_name }}</span>
+                          </div>
+                      </ion-col>
+                  </ion-row>
+              </ion-grid>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="ss_product_list" *ngIf="term == 'products'">
+      <div *ngFor="let v of products" class="store" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/products/' + v.image + ')'}">
+          <div class="product_img"></div>
+          <div class="product_desc"></div>
+          <div class="store-top">
+              <div class="cart_icons">
+                  <ion-icon class="cart" routerLink="/cart" name="cart"></ion-icon>
+              </div>
+              <ion-badge> <span class="strike">55$ </span> {{ v.price }}$</ion-badge>
+          </div>
+          <div class="store-bottom">
+              <div>
+                  <p routerLink="/product-detail/{{ v.id }}" style="color:white;margin: 0px;outline:none"> {{ v.product_name }}</p>
+                  <p style="color:white;margin: 0px;">
+
+                      <span class="orange" style="font-size: 11px"><strong>{{ v.name }}</strong> </span> <br> 
+                      <span style="font-size: 11px">{{ v.category_name }}</span>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div *ngIf="term == 'services'">
+      <div *ngFor="let v of services" class="store" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/services/' + v.image + ')'}" routerLink="/service-detail/{{v.id}}">
+          <div class="store-top">
+              <ion-badge> <span class="strike">55$ </span> {{ v.price }}$</ion-badge>
+          </div>
+          <div class="store-bottom">
+              <div style="float: left">
+                  <p style="color:white;margin: 0px;">
+                      {{ v.service_name }} <br>
+                      <span class="orange" style="font-size: 13px"><strong>{{ v.name }} </strong></span> | <span style="font-size: 13px">{{ v.category_name }} </span>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div *ngIf="term == 'offers'">
+      <div *ngFor="let v of offers" class="store" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/offers/' + v.image + ')'}" routerLink="/offer-detail/{{ v.id }}">
+          <div class="store-top">
+              <ion-badge>
+                  <ion-icon name="stopwatch"></ion-icon> 5 days</ion-badge>
+          </div>
+          <div class="store-bottom">
+              <div style="float: left">
+                  <p style="color:white;margin: 0px;">
+                      {{ v.title }} <br>
+                      <span class="orange" style="font-size: 13px"><strong>{{ v.name }}</strong></span> | <span style="font-size: 13px">{{ v.category_name }}</span>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div *ngIf="term == 'events'">
+      <div *ngFor="let v of events" class="store" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/events/' + v.image + ')'}" routerLink="/event-detail/{{ v.id }}">
+          <div class="store-top">
+              <ion-badge>
+                  <ion-icon name="calendar"></ion-icon> November Only</ion-badge>
+          </div>
+          <div class="store-bottom">
+              <div style="float: left">
+                  <p style="color:white; margin-top: 15px;font-size: 13px">
+                      <span class="orange"><strong>{{ v.title }}</strong> </span> | <span>{{ v.name }}</span>
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</ion-content>
+
+
+<ion-content *ngIf="!hasData">
+  <div style="background-color: rgb(76, 77, 90); width: 100%;height: 100%;">
+      <div class="mdl">
+          <ion-spinner name="lines" style="width: 30%;height:30%;color: white;margin-top: 40%">
+
+          </ion-spinner>
+      </div>
+  </div>
+</ion-content>

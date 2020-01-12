@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="dark" class="tr-toolbar">
+    <ion-title>Categories</ion-title>
+    <ion-buttons slot="end">
+      <ion-button >
+          <ion-icon slot="icon-only" ios="ios-search" md="md-search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content fullscreen *ngIf="hasData">
+  <div *ngFor="let v of categories" routerLink="/category-wise/{{ v.id }}" class="img-bg" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/categories/' + v.image + ')'}">
+    <div class="overlay">
+      <h4>{{ v.category_name }}</h4>
+      <small>{{ v.shop }} Stores</small>
+    </div>
+  </div>
+</ion-content>
+
+
+
+<ion-content *ngIf="!hasData">
+    <div style="background-color: rgb(76, 77, 90); width: 100%;height: 100%;">
+        <div  class="mdl">
+            <ion-spinner name="lines" style="width: 30%;height:30%;color: white;margin-top: 40%"> 
+      
+              </ion-spinner>
+        </div>
+    </div>
+</ion-content>

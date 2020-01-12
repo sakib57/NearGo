@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/tab4" ></ion-back-button>
+      </ion-buttons>
+      <ion-title>Register</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <div class="img-bg">
+      <div style="margin:0 auto;position: relative;">
+        <div (click)="openActionSheet()" class="icon"> <ion-icon style="color: white" ios="ios-camera" md="md-camera"></ion-icon></div>
+        <ion-avatar>
+          <img (click)="openActionSheet()" src="/assets/images/profile.png" alt="">
+        </ion-avatar>
+      </div>
+    </div>
+  
+    <div class="form">
+      <form [formGroup]="form">
+          <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+          <small style="color:#fc7303" *ngIf="!form.controls.name.valid  && submitAttempt">Please enter a valid name.</small>
+          
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+          </ion-item>
+          <small style="color:#fc7303" *ngIf="!form.controls.email.valid  && submitAttempt">Please enter an email address.</small>
+              
+          
+          <ion-item>
+              <ion-label position="floating">Phone</ion-label>
+              <ion-input type="number" formControlName="phone"></ion-input>
+            </ion-item>
+            <small style="color:#fc7303" *ngIf="!form.controls.email.valid  && submitAttempt">Please enter a phone number.</small>
+
+
+
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <small style="color:#fc7303" *ngIf="!form.controls.password.valid  && submitAttempt">Please enter a valid password.</small>
+
+          <ion-item>
+            <ion-label position="floating">Confirm Password</ion-label>
+            <ion-input
+              type="password"
+              formControlName="conf_password"
+            ></ion-input>
+          </ion-item>
+          <small style="color:#fc7303" *ngIf="!form.controls.conf_password.valid  && submitAttempt">Please enter confirm password.</small>
+
+          <small style="color:#fc7303" class="error-message" *ngIf="!form.get('conf_password').errors && form.hasError('passwordNotMatch') && (form.get('conf_password').dirty || form.get('conf_password').touched)">
+              Password and Confirm Password fields should match
+          </small>
+
+          <ion-button (click)="onSubmit()" color="light" expand="block" size="large" shape="round" fill="solid">Register Now</ion-button>
+      </form>
+    </div>
+  </ion-content>
+  

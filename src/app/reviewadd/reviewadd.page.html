@@ -1,0 +1,79 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" icon-only>
+            <ion-back-button style="color:white" defaultHref="/reviewall/{{ shop_id }}"></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            Add Review
+        </ion-title>
+        <div class="ss_review_filter">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="12" class="ion-text-center">
+                        <div *ngIf="rate == 0">
+                            <ion-icon class="ionis_riwsea" (click)="one()" name="star-outline"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="two()" name="star-outline"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="three()" name="star-outline"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="four()" name="star-outline"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="five()" name="star-outline"></ion-icon>
+                        </div>
+                        <div *ngIf="rate == 1">
+                            <ion-icon class="ionis_marked" (click)="one()" name="star"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="two()" name="star-outline"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="three()" name="star-outline"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="four()" name="star-outline"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="five()" name="star-outline"></ion-icon>
+                        </div>
+                        <div *ngIf="rate == 2">
+                            <ion-icon class="ionis_marked" (click)="one()" name="star"></ion-icon>
+                            <ion-icon class="ionis_marked" (click)="two()" name="star"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="three()" name="star-outline"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="four()" name="star-outline"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="five()" name="star-outline"></ion-icon>
+                        </div>
+                        <div *ngIf="rate == 3">
+                            <ion-icon class="ionis_marked" (click)="one()" name="star"></ion-icon>
+                            <ion-icon class="ionis_marked" (click)="two()" name="star"></ion-icon>
+                            <ion-icon class="ionis_marked" (click)="three()" name="star"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="four()" name="star-outline"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="five()" name="star-outline"></ion-icon>
+                        </div>
+                        <div *ngIf="rate == 4">
+                            <ion-icon class="ionis_marked" (click)="one()" name="star"></ion-icon>
+                            <ion-icon class="ionis_marked" (click)="two()" name="star"></ion-icon>
+                            <ion-icon class="ionis_marked" (click)="three()" name="star"></ion-icon>
+                            <ion-icon class="ionis_marked" (click)="four()" name="star"></ion-icon>
+                            <ion-icon class="ionis_riwsea" (click)="five()" name="star-outline"></ion-icon>
+                        </div>
+                        <div *ngIf="rate == 5">
+                            <ion-icon class="ionis_marked" (click)="one()" name="star"></ion-icon>
+                            <ion-icon class="ionis_marked" (click)="two()" name="star"></ion-icon>
+                            <ion-icon class="ionis_marked" (click)="three()" name="star"></ion-icon>
+                            <ion-icon class="ionis_marked" (click)="four()" name="star"></ion-icon>
+                            <ion-icon class="ionis_marked" (click)="five()" name="star"></ion-icon>
+                        </div>
+                    </ion-col>
+
+                </ion-row>
+            </ion-grid>
+        </div>
+    </ion-toolbar>
+    <div class="img-bg ss_img" [ngStyle]="{'background-image': 'url('+domain+'assets/images/uploads/shops/' + shopImage + ')'}">
+        <div class="overlay"></div>
+    </div>
+
+
+
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="form">
+        <ion-item>
+            <ion-label position="floating">Let us know your experience with store</ion-label>
+            <ion-textarea type="text" formControlName="message" style="color: white"></ion-textarea>
+        </ion-item>
+        <div class="ion-padding">
+            <ion-button [disabled]="!form.valid" (click)="onSubmit()" expand="block" type="submit" class="ion-no-margin" shape="round" color="light">Submit Review </ion-button>
+        </div>
+    </form>
+</ion-content>

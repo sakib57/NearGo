@@ -1,0 +1,180 @@
+/* Transparent standard */
+
+
+.top-toolbar{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+.black-bg{
+    --background:black;
+}
+.orange{
+    color: #fc7303;
+  }
+/* Show background if class is active */
+.show-background {
+    border-style: none;
+    background: #000000b8;
+}
+
+/* Remove bottom border on md */
+.header-md::after {
+    background-image: none;
+}
+
+/* Remove bottom border on ios */
+.header-ios ion-toolbar:last-child {
+    --border-width: 0;
+}
+.p-less-top-margin{
+    margin-top: 0px;
+    margin-bottom: 3px
+}
+
+ion-slides{
+    margin-top: -56px;
+}
+
+.image-bg{
+    width: 100%;
+    height: 230px;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.in {
+    height: 102px;
+    position: relative;
+    top: 100px;
+}
+.out {
+    height: 161px;
+    position: relative;
+    background-image: linear-gradient( black, #000000bf);
+    margin-top: -1px
+}
+
+.overlay{
+    z-index: 1;
+    width: 100%;
+    color: white;
+    min-height: 530px
+}
+
+ion-back-button{
+    --background: #00000063;
+}
+.cart{
+    --background: #00000063
+}
+.show-background ion-back-button{
+    --background: transparent;
+    
+}
+.show-background .cart{
+    --background: transparent;
+    
+}
+.show-background .mark{
+    border: 1px solid #fc7303
+    
+}
+
+ion-button{
+    --border-color: white;
+    --color: white;
+}
+
+.round{
+    --border-radius: 50%;
+    --vertical-align: middle;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    padding-bottom: 13px;
+}
+.round2{
+    --border-radius: 50%;
+    --vertical-align: middle;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    padding-bottom: 11px;
+}
+
+ion-badge{
+    background-color: #ff5e00;
+    border-radius: 15px;
+    padding: 5px 8px;
+    font-weight: normal;
+  }
+
+  .v-line{
+    border-left: 1px solid #ff5e00;
+    height: 50px;
+    float: right;
+    margin-top: -37px;
+  }
+.prod{
+    float: right;
+    position: relative;
+    top: 15px;
+    font-size: 13px;
+    text-transform: none;
+    margin: 0px
+}
+
+.strike{
+    text-decoration: line-through;
+      color: rgb(173, 173, 173);
+      margin-right: 5px;
+      font-size: 15px;
+      margin-left: -10;
+  }
+
+  h3{
+    font-size: 22px;
+    margin-top: 18px;
+    margin-bottom: -8px;
+  }
+
+  .mark{
+    //width: 15px;
+    //height: 15px;
+    background-color: #fc7303;
+    padding: 2px 5px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid white;
+    font-size: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    left: 34px;
+  }
+
+.variation{
+    width: 100%;
+    height: 40px;
+    background-color: #ddd;
+    border-radius: 3px;
+    padding: 6px;
+}
+.size{
+    padding: 4px;
+    border: 1px solid;
+    color: #000;
+    min-width:27px;
+    //height: 27px;
+    border-color: #000;
+    text-align: center;
+    margin-right:8px;
+    float: left;
+    border-radius: 3px;
+}
+.active{
+    background-color: #000000 !important;
+    border-color: #000000 !important;
+    color: #fff !important;
+}

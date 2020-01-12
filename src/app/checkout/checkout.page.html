@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar class="top-toolbar">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/cart">
+          </ion-back-button>
+        </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="address">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+            <ion-icon style="font-size: 25px"  name="pin"></ion-icon>
+        </ion-col>
+        <ion-col size="10">
+          {{ shipping_address }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="2">
+            <ion-icon style="font-size: 25px"  name="call"></ion-icon>
+        </ion-col>
+        <ion-col size="10">
+          {{ phone }}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="payment-method">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+            <ion-icon style="font-size: 25px" ios="ios-cash" md="md-cash"></ion-icon>
+        </ion-col>
+        <ion-col size="8" class="ion-no-padding">
+          <h6 style="margin-top:10px">Your wallet balance is: {{ user.balance }} $</h6>
+        </ion-col>
+        <ion-col size="2">
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="products">
+    <ion-grid *ngFor="let v of checkout_cart_product">
+      <ion-row>
+        <ion-col size="5">
+          <ion-thumbnail>
+            <img src="{{domain}}assets/images/uploads/products/{{v.image}}" alt="">
+          </ion-thumbnail>
+        </ion-col>
+        <ion-col size="7">
+          <ion-row>
+            <ion-col size="12">
+              <p style="margin: 0px">{{ v.name }}</p>
+              <small>{{ v.shop_name }}</small>
+            </ion-col>
+          </ion-row>
+          <ion-row >
+            <ion-col size="6">
+               {{v.price }} $ <br>
+              <small>12312$</small>
+            </ion-col>
+            <ion-col size="6">
+              <span style=float:right>Qty: {{ v.qty }}</span>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="invoice">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <p>Subtotal</p>
+        </ion-col>
+        <ion-col size="6">
+          <p style="float: right;margin-right:10px">{{ total_cart_price }} $</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <p>Shipping</p>
+        </ion-col>
+        <ion-col size="6">
+          <p style="float: right;margin-right:10px">{{ total_shipping_price }} $</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar color="dark" style="position: relative">
+      <div style="margin-left:12px">
+        <span>Total:  {{ grand_total }} $</span>
+      </div>
+      <ion-button (click)="placeOrder()" class="ckout"  style="margin-right: 10px;text-transform: none" slot="end">Place Order</ion-button>
+    </ion-toolbar>
+</ion-footer>

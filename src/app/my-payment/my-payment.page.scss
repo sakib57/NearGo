@@ -1,0 +1,115 @@
+// ss salim
+ion-header {
+    background: transparent !important;
+    --background: transparent !important;
+    --ion-color-base: transparent !important;
+    ion-toolbar {
+        --background: transparent;
+        --ion-color-base: transparent !important;
+        background: transparent !important;
+        min-height: 140px;
+        --min-height: 140px;
+        --padding-top: 0px;
+        ion-buttons {
+            padding-bottom: 30px;
+        }
+        ion-title {
+            min-height: 140px;
+            --min-height: 44px;
+            padding-left: 40px !important;
+            font-size: 25px;
+            font-weight: normal;
+            padding-top: 0px;
+            text-align: left !important;
+            color: #fff;
+            padding-bottom: 40px;
+            p {
+                font-size: 13px;
+                margin: 0;
+            }
+        }
+        .title-md {
+            padding-left: 0px !important;
+        }
+        ion-icon {
+            color: #ef731f !important;
+        }
+        .toolbar-container {
+            padding: 0px;
+            --padding: 0px;
+        }
+        .ss_review_filter {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            color: #fff;
+            font-size: 12px;
+            line-height: 28px;
+            padding-left: 20px;
+            .store-top {
+                ion-badge {
+                    background-color: #fc7303;
+                    border-radius: 15px;
+                    padding: 6px 10px;
+                    font-weight: normal;
+                    text-align: center;
+                    float: left;
+                    margin-right: 7px;
+                    ion-icon {
+                        color: #fff !important;
+                    }
+                }
+            }
+            ion-select {
+                padding: 0;
+                --padding: 0;
+                color: #fc7303;
+            }
+        }
+    }
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    //background-color: red;
+    background-image: linear-gradient(to bottom, rgba(24, 24, 24, .3), rgba(24, 24, 24, 1));
+    //opacity: 0.5;
+}
+
+.img-bg {
+    width: 100%;
+    height: 140px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+}
+
+ion-content {
+    --padding-top: 30px;
+    --padding-bottom: 30px;
+    background: #181818;
+    --background: #181818;
+    color: #fff;
+    ion-list {
+        border-color: #181818;
+        --border-color: #181818;
+        background: transparent;
+        --background: transparent;
+        ion-item {
+            background: #151515;
+            --background: #151515;
+            border-color: #181818;
+            --border-color: #181818;
+            color: #737373;
+        }
+        .ss_checks {
+            background: #fff;
+            --background: #fff;
+            color: #ef731f;
+        }
+    }
+}
